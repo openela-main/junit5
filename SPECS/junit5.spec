@@ -7,7 +7,7 @@
 
 Name:           junit5
 Version:        5.7.1
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Java regression testing framework
 License:        EPL-2.0
 URL:            https://junit.org/junit5/
@@ -134,6 +134,9 @@ ln -s ../../javadoc/junit5 documentation/src/docs/api
 %doc documentation/src/docs/*
 
 %changelog
+* Wed Nov 20 2024 Marián Konček <mkoncek@redhat.com> - 5.7.1-6
+- Rebuild with regenerated Requires on Java
+
 * Mon Aug 09 2021 Mohan Boddu <mboddu@redhat.com> - 5.7.1-5
 - Rebuilt for IMA sigs, glibc 2.34, aarch64 flags
   Related: rhbz#1991688
