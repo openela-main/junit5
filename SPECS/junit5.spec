@@ -7,11 +7,12 @@
 
 Name:           junit5
 Version:        5.7.1
-Release:        6%{?dist}
+Release:        8%{?dist}
 Summary:        Java regression testing framework
 License:        EPL-2.0
 URL:            https://junit.org/junit5/
 BuildArch:      noarch
+ExclusiveArch:  aarch64 ppc64le s390x x86_64 noarch
 
 Source0:        https://github.com/junit-team/junit5/archive/r%{version}/junit5-%{version}.tar.gz
 
@@ -134,6 +135,12 @@ ln -s ../../javadoc/junit5 documentation/src/docs/api
 %doc documentation/src/docs/*
 
 %changelog
+* Sat Nov 23 2024 Marián Konček <mkoncek@redhat.com> - 5.7.1-8
+- Add noarch to ExclusiveArch
+
+* Fri Nov 22 2024 Marián Konček <mkoncek@redhat.com> - 5.7.1-7
+- Disable building on i686
+
 * Wed Nov 20 2024 Marián Konček <mkoncek@redhat.com> - 5.7.1-6
 - Rebuild with regenerated Requires on Java
 
