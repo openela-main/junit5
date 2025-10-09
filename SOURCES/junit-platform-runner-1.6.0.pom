@@ -7,11 +7,11 @@
   <!-- that they should prefer consuming it instead. -->
   <!-- do_not_remove: published-with-gradle-metadata -->
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.junit.vintage</groupId>
-  <artifactId>junit-vintage-engine</artifactId>
-  <version>5.6.2</version>
-  <name>JUnit Vintage Engine</name>
-  <description>Module "junit-vintage-engine" of JUnit 5.</description>
+  <groupId>org.junit.platform</groupId>
+  <artifactId>junit-platform-runner</artifactId>
+  <version>1.6.0</version>
+  <name>JUnit Platform Runner</name>
+  <description>Module "junit-platform-runner" of JUnit 5.</description>
   <url>https://junit.org/junit5/</url>
   <licenses>
     <license>
@@ -71,13 +71,19 @@
       <dependency>
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
-        <version>5.6.2</version>
+        <version>5.6.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
   <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13</version>
+      <scope>compile</scope>
+    </dependency>
     <dependency>
       <groupId>org.apiguardian</groupId>
       <artifactId>apiguardian-api</artifactId>
@@ -86,14 +92,14 @@
     </dependency>
     <dependency>
       <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-engine</artifactId>
-      <version>1.6.2</version>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>1.6.0</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13</version>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite-api</artifactId>
+      <version>1.6.0</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>

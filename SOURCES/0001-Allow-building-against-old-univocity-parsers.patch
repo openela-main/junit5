@@ -1,0 +1,25 @@
+From 0b862ac5e0964a31727d92f7260223f076203a93 Mon Sep 17 00:00:00 2001
+From: Mat Booth <mat.booth@redhat.com>
+Date: Wed, 13 May 2020 13:28:45 +0100
+Subject: [PATCH] Allow building against old univocity-parsers
+
+---
+ .../org/junit/jupiter/params/provider/CsvParserFactory.java     | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/junit-jupiter-params/src/main/java/org/junit/jupiter/params/provider/CsvParserFactory.java b/junit-jupiter-params/src/main/java/org/junit/jupiter/params/provider/CsvParserFactory.java
+index d1463d5..147db97 100644
+--- a/junit-jupiter-params/src/main/java/org/junit/jupiter/params/provider/CsvParserFactory.java
++++ b/junit-jupiter-params/src/main/java/org/junit/jupiter/params/provider/CsvParserFactory.java
+@@ -59,7 +59,7 @@ class CsvParserFactory {
+ 			String emptyValue) {
+ 
+ 		CsvParserSettings settings = new CsvParserSettings();
+-		settings.getFormat().setDelimiter(delimiter);
++		settings.getFormat().setDelimiter(delimiter.charAt(0));
+ 		settings.getFormat().setLineSeparator(lineSeparator);
+ 		settings.getFormat().setQuote(quote);
+ 		settings.getFormat().setQuoteEscape(quote);
+-- 
+2.26.2
+

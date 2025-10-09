@@ -8,8 +8,8 @@
 %bcond_with console
 
 Name:           junit5
-Version:        5.6.2
-Release:        2%{?dist}
+Version:        5.6.0
+Release:        1%{?dist}
 Summary:        Java regression testing framework
 License:        EPL-2.0
 URL:            http://junit.org/junit5/
@@ -37,6 +37,9 @@ Source304:      https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-p
 Source400:      https://repo1.maven.org/maven2/org/junit/vintage/junit-vintage-engine/%{vintage_version}/junit-vintage-engine-%{vintage_version}.pom
 # Bill of Materials POM
 Source500:      https://repo1.maven.org/maven2/org/junit/junit-bom/%{version}/junit-bom-%{version}.pom
+
+# SCL-specific patches
+Patch100: 0001-Allow-building-against-old-univocity-parsers.patch
 
 BuildRequires:  maven-local
 BuildRequires:  mvn(com.univocity:univocity-parsers)
@@ -75,6 +78,9 @@ JUnit 5 User Guide.
 
 %prep
 %setup -q -n %{name}-r%{version}
+
+# SCL-specific patches
+%patch100 -p1
 find -name \*.jar -delete
 
 cp -p %{SOURCE100} pom.xml
@@ -146,12 +152,6 @@ ln -s ../../javadoc/junit5 documentation/src/docs/api
 %doc documentation/src/docs/*
 
 %changelog
-* Fri Jul 10 2020 Jiri Vanek <jvanek@redhat.com> - 5.6.2-2
-- Rebuilt for JDK-11, see https://fedoraproject.org/wiki/Changes/Java11
-
-* Sat May 09 2020 Fabio Valentini <decathorpe@gmail.com> - 5.6.2-1
-- Update to version 5.6.2.
-
 * Mon Feb 17 2020 Alexander Scheel <ascheel@redhat.com> - 5.6.0-1
 - Update to version 5.6.0
 
